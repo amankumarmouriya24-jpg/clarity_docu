@@ -1,0 +1,10 @@
+[init]
+	defaultBranch = none
+[fetch]
+	recurseSubmodules = false
+[credential]
+	interactive = never
+[gc]
+	autoDetach = false
+[include]
+	path = C:\\Users\\dhruv\\OneDrive\\Desktop\\clarity_doc\\builds\\cIHQqaMIa\\0\\Amanmouriya\\clarity_doc.tmp\\.gitlab-runner.ext.conf

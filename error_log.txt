@@ -1,0 +1,33 @@
+2026-06-30 09:07:46,386 | INFO | claritydoc_backend_app | Database initialized successfully
+Traceback (most recent call last):
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\app.py", line 107, in <module>
+    app.run(host=Config.HOST, port=Config.PORT, debug=Config.DEBUG)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\.venv\Lib\site-packages\flask\app.py", line 624, in run
+    cli.load_dotenv()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\.venv\Lib\site-packages\flask\cli.py", line 760, in load_dotenv
+    data |= dotenv.dotenv_values(default_path, encoding="utf-8")
+            ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\.venv\Lib\site-packages\dotenv\main.py", line 465, in dotenv_values
+    ).dict()
+      ~~~~^^
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\.venv\Lib\site-packages\dotenv\main.py", line 84, in dict
+    resolve_variables(raw_values, override=self.override)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\.venv\Lib\site-packages\dotenv\main.py", line 295, in resolve_variables
+    for name, value in values:
+                       ^^^^^^
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\.venv\Lib\site-packages\dotenv\main.py", line 93, in parse
+    for mapping in with_warn_for_invalid_lines(parse_stream(stream)):
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\.venv\Lib\site-packages\dotenv\main.py", line 33, in with_warn_for_invalid_lines
+    for mapping in mappings:
+                   ^^^^^^^^
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\.venv\Lib\site-packages\dotenv\parser.py", line 180, in parse_stream
+    reader = Reader(stream)
+  File "C:\Users\dhruv\OneDrive\Desktop\clarity_doc\.venv\Lib\site-packages\dotenv\parser.py", line 71, in __init__
+    self.string = stream.read()
+                  ~~~~~~~~~~~^^
+  File "<frozen codecs>", line 325, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte

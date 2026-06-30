@@ -1,0 +1,620 @@
+2026-06-28 12:10:44,784 | INFO | app | Database initialized successfully
+2026-06-28 12:10:44,796 | INFO | app | GET /health
+2026-06-28 12:11:23,281 | INFO | app | Database initialized successfully
+2026-06-28 12:11:23,288 | INFO | app | GET /health
+2026-06-28 13:53:24,043 | INFO | app | Database initialized successfully
+2026-06-28 13:53:24,052 | INFO | app | GET /health
+2026-06-28 13:57:55,063 | INFO | app | Database initialized successfully
+2026-06-28 13:58:17,074 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 13:58:17,082 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 14:22:18,489 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:26:07,391 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:26:07,400 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:26:07,406 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:26:07,407 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 14:26:07,408 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:26:07,411 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:28:08,561 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:28:12,610 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:28:12,790 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:28:12,792 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:28:24,823 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:28:24,846 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:28:24,879 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:28:34,257 | INFO | claritydoc_backend_app | POST /upload
+2026-06-28 14:28:34,261 | INFO | claritydoc_backend_app | Saved upload: /Users/apple/clarity_doc/backend/uploads/bus_1782637114_62d498ad1d.jpg
+2026-06-28 14:28:34,381 | ERROR | claritydoc_backend_app | OCR failed for image /Users/apple/clarity_doc/backend/uploads/bus_1782637114_62d498ad1d.jpg: tesseract is not installed or it's not in your PATH. See README file for more information.
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 275, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'tesseract'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/apple/clarity_doc/backend/services/ocr_service.py", line 34, in _extract_from_image
+    text = pytesseract.image_to_string(normalized)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 486, in image_to_string
+    return {
+           ~
+    ...<2 lines>...
+        Output.STRING: lambda: run_and_get_output(*args),
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    }[output_type]()
+    ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 352, in run_and_get_output
+    run_tesseract(**kwargs)
+    ~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 280, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-06-28 14:28:34,384 | ERROR | claritydoc_backend_app | Upload processing failed: Image OCR failed
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 275, in run_tesseract
+    proc = subprocess.Popen(cmd_args, **subprocess_args())
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/subprocess.py", line 1990, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'tesseract'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/apple/clarity_doc/backend/services/ocr_service.py", line 34, in _extract_from_image
+    text = pytesseract.image_to_string(normalized)
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 486, in image_to_string
+    return {
+           ~
+    ...<2 lines>...
+        Output.STRING: lambda: run_and_get_output(*args),
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    }[output_type]()
+    ~~~~~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 489, in <lambda>
+    Output.STRING: lambda: run_and_get_output(*args),
+                           ~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 352, in run_and_get_output
+    run_tesseract(**kwargs)
+    ~~~~~~~~~~~~~^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/site-packages/pytesseract/pytesseract.py", line 280, in run_tesseract
+    raise TesseractNotFoundError()
+pytesseract.pytesseract.TesseractNotFoundError: tesseract is not installed or it's not in your PATH. See README file for more information.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/apple/clarity_doc/backend/routes.py", line 43, in upload_document
+    raw_text = OCRService.extract_text(saved_path)
+  File "/Users/apple/clarity_doc/backend/services/ocr_service.py", line 24, in extract_text
+    return OCRService._extract_from_image(path)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/apple/clarity_doc/backend/services/ocr_service.py", line 38, in _extract_from_image
+    raise RuntimeError("Image OCR failed") from exc
+RuntimeError: Image OCR failed
+2026-06-28 14:29:10,225 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:31:29,712 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:31:43,472 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:33:08,372 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:33:08,408 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:33:08,408 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:33:28,374 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:33:28,434 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:33:47,893 | INFO | claritydoc_backend_app | POST /upload
+2026-06-28 14:33:47,938 | INFO | claritydoc_backend_app | Saved upload: /Users/apple/clarity_doc/backend/uploads/Unit-2_notes_1_1782637427_6ad2bf9226.pdf
+2026-06-28 14:33:47,950 | WARNING | claritydoc_backend_app | PDF image OCR failed for /Users/apple/clarity_doc/backend/uploads/Unit-2_notes_1_1782637427_6ad2bf9226.pdf, trying embedded text fallback: Unable to get page count. Is poppler installed and in PATH?
+2026-06-28 14:34:09,443 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:34:09,484 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:34:09,485 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:34:11,238 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:34:11,296 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:34:11,297 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:34:29,840 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:34:29,881 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:35:12,873 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:35:12,916 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:35:12,916 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:35:32,050 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:35:36,954 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:35:37,104 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:35:37,105 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:35:37,190 | INFO | claritydoc_backend_app | GET /favicon.ico
+2026-06-28 14:35:37,193 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:37:06,230 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:37:06,272 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:37:06,275 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:37:18,522 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:37:18,548 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:42:22,745 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:42:22,778 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:45:35,745 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:45:35,757 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:45:35,760 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 14:45:35,760 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 14:45:35,768 | INFO | claritydoc_backend_app | Stored document id=1 filename=pasted-text.txt
+2026-06-28 14:47:13,147 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:47:17,576 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:47:17,740 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:47:17,741 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:47:17,876 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:47:23,288 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:47:23,312 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:47:23,359 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:47:33,175 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:47:33,212 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:47:34,862 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:47:34,894 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:47:35,059 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:47:35,074 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:47:37,491 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:47:37,527 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:47:56,054 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:47:56,107 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:47:56,149 | INFO | claritydoc_backend_app | GET /favicon.ico
+2026-06-28 14:48:00,520 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:48:00,573 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:48:09,794 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:48:09,821 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:48:09,822 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:48:17,557 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:48:17,586 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:48:28,234 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 14:48:28,258 | INFO | claritydoc_backend_app | Stored document id=2 filename=pasted-text.txt
+2026-06-28 14:49:16,672 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 14:49:16,680 | INFO | claritydoc_backend_app | Stored document id=3 filename=pasted-text.txt
+2026-06-28 14:50:39,716 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 14:50:39,734 | INFO | claritydoc_backend_app | Stored document id=4 filename=pasted-text.txt
+2026-06-28 14:52:55,238 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 14:52:59,228 | INFO | claritydoc_backend_app | GET /
+2026-06-28 14:52:59,387 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:52:59,388 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 14:52:59,509 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:53:07,588 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 14:53:07,608 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 14:53:07,638 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:03:11,895 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:03:11,977 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:03:11,979 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:03:15,052 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:03:15,068 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:03:27,385 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:03:27,418 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:03:27,419 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:10:40,818 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:10:40,818 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:10:40,828 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:10:40,828 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:10:40,832 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 15:10:40,839 | INFO | claritydoc_backend_app | Stored document id=5 filename=pasted-text.txt
+2026-06-28 15:11:11,799 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:11:11,808 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:11:11,815 | INFO | claritydoc_backend_app | Stored document id=6 filename=pasted-text.txt
+2026-06-28 15:11:43,901 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:11:43,901 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:11:43,911 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:11:43,911 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:11:43,915 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 15:11:43,921 | INFO | claritydoc_backend_app | Stored document id=7 filename=pasted-text.txt
+2026-06-28 15:20:39,177 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:21:28,056 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:21:54,304 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:21:58,369 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:21:58,511 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:21:58,513 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:21:58,636 | INFO | claritydoc_backend_app | GET /favicon.ico
+2026-06-28 15:21:58,638 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:22:02,332 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:22:02,357 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:22:02,391 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:23:15,306 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:23:15,340 | INFO | claritydoc_backend_app | Stored document id=8 filename=pasted-text.txt
+2026-06-28 15:24:22,297 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:24:36,627 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:24:59,336 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:25:39,643 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:25:46,452 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:25:46,603 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:25:46,604 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:25:46,727 | INFO | claritydoc_backend_app | GET /favicon.ico
+2026-06-28 15:25:46,728 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:26:15,193 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:26:15,263 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:26:15,264 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:26:15,317 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:26:29,482 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:26:29,552 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:26:29,553 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:26:29,606 | INFO | claritydoc_backend_app | GET /favicon.ico
+2026-06-28 15:29:37,918 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:29:37,984 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:29:41,355 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:29:41,380 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:29:41,382 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:36:37,757 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:36:37,767 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:36:37,772 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:36:37,775 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:36:37,778 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:36:37,779 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 15:36:37,780 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:36:37,790 | INFO | claritydoc_backend_app | Stored document id=9 filename=pasted-text.txt
+2026-06-28 15:37:41,982 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:37:42,035 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:37:42,043 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:38:51,498 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:38:51,555 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:38:51,558 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:39:12,034 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:39:12,073 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:39:16,095 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:39:16,122 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:42:20,392 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:42:20,434 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:42:20,436 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:42:38,679 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:42:38,711 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:42:55,865 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:42:55,890 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:42:59,196 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:42:59,206 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:42:59,212 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:42:59,215 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:42:59,218 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:42:59,219 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 15:42:59,219 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:42:59,229 | INFO | claritydoc_backend_app | Stored document id=10 filename=pasted-text.txt
+2026-06-28 15:44:10,258 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:44:10,298 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:44:10,302 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:44:16,841 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:44:16,882 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:44:16,883 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:44:20,110 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:44:20,141 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:44:20,142 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:44:26,042 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:44:26,086 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:44:26,088 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:46:54,703 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:46:54,762 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:46:54,763 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:50:31,379 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:50:31,387 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:50:31,391 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:50:31,393 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:50:31,395 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:50:31,396 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 15:50:31,396 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:50:31,405 | INFO | claritydoc_backend_app | Stored document id=11 filename=pasted-text.txt
+2026-06-28 15:50:33,153 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:50:33,227 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:50:33,230 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:51:12,975 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:51:13,028 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:51:13,036 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:52:00,564 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:52:00,622 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:52:00,624 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:52:20,655 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:52:20,688 | INFO | claritydoc_backend_app | Stored document id=12 filename=pasted-text.txt
+2026-06-28 15:52:22,910 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:52:22,918 | INFO | claritydoc_backend_app | Stored document id=13 filename=pasted-text.txt
+2026-06-28 15:52:25,093 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:52:25,099 | INFO | claritydoc_backend_app | Stored document id=14 filename=pasted-text.txt
+2026-06-28 15:52:26,688 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:52:26,692 | INFO | claritydoc_backend_app | Stored document id=15 filename=pasted-text.txt
+2026-06-28 15:52:27,708 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:52:27,715 | INFO | claritydoc_backend_app | Stored document id=16 filename=pasted-text.txt
+2026-06-28 15:52:47,960 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:52:47,968 | INFO | claritydoc_backend_app | Stored document id=17 filename=pasted-text.txt
+2026-06-28 15:52:59,390 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:52:59,396 | INFO | claritydoc_backend_app | Stored document id=18 filename=pasted-text.txt
+2026-06-28 15:53:02,374 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:53:02,380 | INFO | claritydoc_backend_app | Stored document id=19 filename=pasted-text.txt
+2026-06-28 15:53:05,207 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:53:05,216 | INFO | claritydoc_backend_app | Stored document id=20 filename=pasted-text.txt
+2026-06-28 15:53:13,423 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:53:13,431 | INFO | claritydoc_backend_app | Stored document id=21 filename=pasted-text.txt
+2026-06-28 15:53:17,674 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:53:17,680 | INFO | claritydoc_backend_app | Stored document id=22 filename=pasted-text.txt
+2026-06-28 15:53:20,192 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:53:20,198 | INFO | claritydoc_backend_app | Stored document id=23 filename=pasted-text.txt
+2026-06-28 15:54:02,041 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:54:02,059 | INFO | claritydoc_backend_app | Stored document id=24 filename=pasted-text.txt
+2026-06-28 15:54:21,239 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:54:21,248 | INFO | claritydoc_backend_app | Stored document id=25 filename=pasted-text.txt
+2026-06-28 15:54:58,147 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 15:54:58,164 | INFO | claritydoc_backend_app | Stored document id=26 filename=pasted-text.txt
+2026-06-28 15:57:48,653 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:57:48,702 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:57:48,705 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:57:50,281 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:57:50,304 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:57:50,306 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:59:47,723 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:59:47,766 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:59:47,769 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:59:48,441 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 15:59:48,450 | INFO | claritydoc_backend_app | GET /
+2026-06-28 15:59:48,453 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 15:59:48,455 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 15:59:48,456 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 15:59:48,459 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 15:59:48,459 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 15:59:48,464 | INFO | claritydoc_backend_app | Offline AI answered question mode=project_help
+2026-06-28 15:59:48,465 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 15:59:48,466 | INFO | claritydoc_backend_app | Offline AI answered question mode=project_help
+2026-06-28 16:00:01,084 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:00:01,089 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 16:00:01,098 | INFO | claritydoc_backend_app | Stored document id=27 filename=pasted-text.txt
+2026-06-28 16:00:01,100 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:00:01,104 | INFO | claritydoc_backend_app | Offline AI answered question mode=structured_field
+2026-06-28 16:00:03,889 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:00:20,708 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 16:00:20,728 | INFO | claritydoc_backend_app | Stored document id=28 filename=pasted-text.txt
+2026-06-28 16:00:35,029 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:00:35,311 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:00:35,320 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:00:35,326 | INFO | claritydoc_backend_app | Offline AI answered question mode=structured_field
+2026-06-28 16:00:50,890 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:00:50,900 | INFO | claritydoc_backend_app | GET /
+2026-06-28 16:00:50,904 | INFO | claritydoc_backend_app | GET /upload
+2026-06-28 16:00:50,907 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 16:00:50,908 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 16:00:50,911 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 16:00:50,912 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:00:50,917 | INFO | claritydoc_backend_app | Offline AI answered question mode=project_help
+2026-06-28 16:01:16,802 | INFO | claritydoc_backend_app | GET /
+2026-06-28 16:01:16,888 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 16:01:16,891 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 16:01:20,735 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:01:36,289 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 16:01:36,316 | INFO | claritydoc_backend_app | Stored document id=29 filename=pasted-text.txt
+2026-06-28 16:01:46,996 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:03:09,743 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:03:09,752 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:03:09,762 | INFO | claritydoc_backend_app | Offline AI answered question mode=structured_field
+2026-06-28 16:03:26,178 | INFO | claritydoc_backend_app | GET /
+2026-06-28 16:03:26,238 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 16:03:26,239 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 16:03:38,607 | INFO | claritydoc_backend_app | POST /upload
+2026-06-28 16:03:38,621 | INFO | claritydoc_backend_app | Saved upload: /Users/apple/clarity_doc/backend/uploads/Second_Year_Memo_Download____1782642818_7699f0fb9a.pdf
+2026-06-28 16:03:38,628 | WARNING | claritydoc_backend_app | PDF image OCR failed for /Users/apple/clarity_doc/backend/uploads/Second_Year_Memo_Download____1782642818_7699f0fb9a.pdf, trying embedded text fallback: Unable to get page count. Is poppler installed and in PATH?
+2026-06-28 16:03:38,679 | INFO | claritydoc_backend_app | Stored document id=30 filename=Second_Year_Memo_Download____1782642818_7699f0fb9a.pdf
+2026-06-28 16:03:47,801 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:03:47,810 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:03:47,820 | INFO | claritydoc_backend_app | Offline AI answered question mode=structured_field
+2026-06-28 16:04:54,531 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:05:49,377 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:05:53,640 | INFO | claritydoc_backend_app | GET /
+2026-06-28 16:05:53,800 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 16:05:53,820 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 16:06:02,076 | INFO | claritydoc_backend_app | GET /
+2026-06-28 16:06:02,097 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 16:06:02,117 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 16:06:19,347 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-28 16:06:19,394 | INFO | claritydoc_backend_app | Stored document id=31 filename=pasted-text.txt
+2026-06-28 16:06:32,784 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:06:32,805 | INFO | claritydoc_backend_app | Offline AI answered question mode=structured_field
+2026-06-28 16:07:07,499 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-28 16:07:07,538 | INFO | claritydoc_backend_app | Offline AI answered question mode=closest_document
+2026-06-28 16:17:11,439 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:17:55,424 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:18:00,776 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:18:07,733 | INFO | claritydoc_backend_app | GET /
+2026-06-28 16:18:07,789 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 16:18:07,794 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 16:18:52,283 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:19:08,501 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:19:16,019 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 16:19:23,916 | INFO | claritydoc_backend_app | GET /
+2026-06-28 16:19:24,068 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 16:19:24,083 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 19:49:34,424 | ERROR | claritydoc_backend_app | Database initialization failed: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+Traceback (most recent call last):
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3319, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 1272, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/apple/clarity_doc/backend/database.py", line 11, in init_database
+    db.create_all()
+    ~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/flask_sqlalchemy/extension.py", line 900, in create_all
+    self._call_for_binds(bind_key, "create_all")
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/flask_sqlalchemy/extension.py", line 881, in _call_for_binds
+    getattr(metadata, op_name)(bind=engine)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/sql/schema.py", line 5930, in create_all
+    bind._run_ddl_visitor(
+    ~~~~~~~~~~~~~~~~~~~~~^
+        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3269, in _run_ddl_visitor
+    with self.begin() as conn:
+         ~~~~~~~~~~^^
+  File "/Library/Frameworks/Python.framework/Versions/3.14/lib/python3.14/contextlib.py", line 141, in __enter__
+    return next(self.gen)
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3259, in begin
+    with self.connect() as conn:
+         ~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3295, in connect
+    return self._connection_cls(self)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 146, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        err, dialect, engine
+        ^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 2450, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 144, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/base.py", line 3319, in raw_connection
+    return self.pool.connect()
+           ~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 448, in connect
+    return _ConnectionFairy._checkout(self)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 1272, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 712, in checkout
+    rec = pool._do_get()
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 178, in _do_get
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/impl.py", line 176, in _do_get
+    return self._create_connection()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 389, in _create_connection
+    return _ConnectionRecord(self)
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 674, in __init__
+    self.__connect()
+    ~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 900, in __connect
+    with util.safe_reraise():
+         ~~~~~~~~~~~~~~~~~^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/util/langhelpers.py", line 122, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/pool/base.py", line 896, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/create.py", line 667, in connect
+    return dialect.connect(*cargs_tup, **cparams)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/apple/clarity_doc/.venv/lib/python3.14/site-packages/sqlalchemy/engine/default.py", line 630, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-06-28 19:51:00,808 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 20:01:04,850 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 20:01:11,921 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 20:01:11,922 | INFO | claritydoc_backend_app | HEAD /
+2026-06-28 20:02:40,996 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 20:02:45,185 | INFO | claritydoc_backend_app | GET /
+2026-06-28 20:02:45,309 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 20:02:45,320 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 20:02:55,473 | INFO | claritydoc_backend_app | GET /
+2026-06-28 20:02:55,488 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 20:02:55,493 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 20:02:56,646 | INFO | claritydoc_backend_app | GET /
+2026-06-28 20:02:56,714 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-28 20:02:56,716 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-28 20:02:56,780 | INFO | claritydoc_backend_app | GET /favicon.ico
+2026-06-28 20:09:19,715 | INFO | app | Database initialized successfully
+2026-06-28 20:09:19,726 | INFO | app | GET /health
+2026-06-28 20:09:19,729 | INFO | app | POST /upload
+2026-06-28 20:09:19,730 | INFO | app | POST /upload
+2026-06-28 20:10:37,197 | INFO | app | Database initialized successfully
+2026-06-28 20:10:37,204 | INFO | app | GET /health
+2026-06-28 20:10:37,207 | INFO | app | POST /upload
+2026-06-28 20:10:37,208 | INFO | app | POST /upload
+2026-06-28 20:10:43,738 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-28 20:10:43,743 | INFO | claritydoc_backend_app | GET /health
+2026-06-28 20:11:17,147 | INFO | app | Database initialized successfully
+2026-06-28 20:11:17,156 | INFO | app | GET /health
+2026-06-28 20:11:17,159 | INFO | app | POST /upload
+2026-06-28 20:11:17,160 | INFO | app | POST /upload
+2026-06-30 08:56:11,970 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-30 08:57:01,316 | INFO | claritydoc_backend_app | GET /
+2026-06-30 08:57:01,364 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-30 08:57:01,366 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-30 14:22:46,718 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-30 14:22:50,844 | INFO | claritydoc_backend_app | GET /
+2026-06-30 14:22:51,212 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-30 14:22:51,226 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-30 14:23:26,318 | INFO | claritydoc_backend_app | GET /
+2026-06-30 14:23:26,405 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-30 14:23:26,424 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-30 14:23:26,542 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-30 14:23:58,218 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-30 14:23:58,254 | INFO | claritydoc_backend_app | Stored document id=32 filename=pasted-text.txt
+2026-06-30 14:24:12,867 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-30 14:24:12,881 | INFO | claritydoc_backend_app | Stored document id=33 filename=pasted-text.txt
+2026-06-30 14:24:35,177 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-30 14:24:35,197 | INFO | claritydoc_backend_app | Offline AI answered question mode=document_search
+2026-06-30 14:26:46,958 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-30 14:26:46,996 | INFO | claritydoc_backend_app | Stored document id=34 filename=pasted-text.txt
+2026-06-30 14:30:18,273 | INFO | claritydoc_backend_app | POST /process-text
+2026-06-30 14:30:18,296 | INFO | claritydoc_backend_app | Stored document id=35 filename=pasted-text.txt
+2026-06-30 14:30:29,156 | INFO | claritydoc_backend_app | POST /ask-ai
+2026-06-30 14:30:29,172 | INFO | claritydoc_backend_app | Offline AI answered question mode=structured_field
+2026-06-30 16:02:31,820 | INFO | app | Database initialized successfully
+2026-06-30 21:54:13,501 | INFO | claritydoc_backend_app | Database initialized successfully
+2026-06-30 21:54:23,949 | INFO | claritydoc_backend_app | GET /
+2026-06-30 21:54:23,964 | INFO | claritydoc_backend_app | GET /static/css/style.css
+2026-06-30 21:54:23,973 | INFO | claritydoc_backend_app | GET /static/js/script.js
+2026-06-30 21:54:25,194 | INFO | claritydoc_backend_app | GET /favicon.ico

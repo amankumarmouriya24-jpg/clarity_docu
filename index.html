@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ClarityDoc explains official documents in simple words and extracts actions, deadlines, amounts, and contacts.">
+  <title>ClarityDoc | Complex Made Simple</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('root_style') }}">
+</head>
+<body class="dashboard-body">
+  <a class="skip-link" href="#main">Skip to workspace</a>
+  <div class="aurora aurora-a" aria-hidden="true"></div>
+  <div class="aurora aurora-b" aria-hidden="true"></div>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Sidebar navigation">
+      <a class="logo" href="{{ url_for('index') }}" aria-label="ClarityDoc home">
+        <span class="logo-mark"><i data-lucide="sparkles"></i></span>
+        <span>
+          <strong>Clarity<span>Doc</span></strong>
+          <small>Complex Made Simple</small>
+        </span>
+      </a>
+
+      <nav class="side-nav">
+        <a class="active" href="{{ url_for('index') }}"><i data-lucide="home"></i> Home</a>
+        <a href="#new-document"><i data-lucide="circle-plus"></i> New Document</a>
+        <a href="#results"><i data-lucide="folder"></i> My Documents</a>
+        <a href="#samples"><i data-lucide="clock-3"></i> Recent</a>
+        <a href="#samples"><i data-lucide="layers-3"></i> Templates</a>
+      </nav>
+
+      <div class="side-section">
+        <p>Tools</p>
+        <a href="#pasteText"><i data-lucide="wand-sparkles"></i> Text Simplifier</a>
+        <a href="#results"><i data-lucide="layout-grid"></i> Information Extractor</a>
+        <a href="#new-document"><i data-lucide="scan-line"></i> OCR Tool</a>
+        <a href="#ai-assistant"><i data-lucide="message-circle"></i> Offline AI Chat</a>
+      </div>
+
+      <div class="side-section">
+        <p>Settings</p>
+        <button class="side-button theme-toggle" type="button" aria-label="Toggle light and dark mode" aria-pressed="false">
+          <i data-lucide="palette"></i> Appearance
+        </button>
+        <a href="#privacy"><i data-lucide="shield"></i> Privacy</a>
+        <a href="#support"><i data-lucide="circle-help"></i> Help & Support</a>
+      </div>
+
+      <div class="privacy-card">
+        <span><i data-lucide="check"></i></span>
+        <div>
+          <strong>100% Private</strong>
+          <p>Everything runs locally on your device</p>
+        </div>
+      </div>
+    </aside>
+
+    <div class="content-shell">
+      <header class="topbar">
+        <label class="search-box" aria-label="Search your documents">
+          <i data-lucide="search"></i>
+          <input type="search" placeholder="Search your documents..." autocomplete="off">
+          <kbd>⌘ K</kbd>
+        </label>
+
+        <div class="top-actions">
+          <div class="offline-pill">
+            <span><i data-lucide="cpu"></i></span>
+            <div><strong>Offline Mode</strong><small>CPU Only · No Cloud</small></div>
+          </div>
+          <button class="icon-button theme-toggle" type="button" aria-label="Toggle light and dark mode" aria-pressed="false"><i data-lucide="moon"></i></button>
+          <button class="icon-button" type="button" aria-label="Notifications"><i data-lucide="bell"></i></button>
+          <div class="profile-chip" aria-label="Current user">
+            <span>A</span>
+            <div><strong>Aman</strong><small>Local Session</small></div>
+            <i data-lucide="chevron-down"></i>
+          </div>
+        </div>
+      </header>
+
+      <main id="main" class="main-grid">
+        <section class="workspace-card" id="new-document">
+          <div class="hero-copy">
+            <h1>Understand documents in <span>simple words</span></h1>
+            <p>Upload any document and let AI explain it in plain language with key actions, deadlines, and important information.</p>
+            <div class="mini-badges">
+              <span><i data-lucide="circle-dot"></i> Offline Processing</span>
+              <span><i data-lucide="lock-keyhole"></i> No Data Leaves Your Device</span>
+              <span><i data-lucide="microchip"></i> CPU Powered</span>
+            </div>
+          </div>
+
+          <form id="uploadForm" class="upload-zone" enctype="multipart/form-data">
+            <label id="dropZone" class="drop-zone" for="fileInput" tabindex="0">
+              <span class="upload-orb"><i data-lucide="upload"></i></span>
+              <strong>Drop your document here</strong>
+              <small>or click to browse files</small>
+              <em>PDF, PNG, JPG, JPEG up to 20MB</em>
+              <span class="choose-button"><i data-lucide="folder"></i> Choose File</span>
+            </label>
+            <input id="fileInput" class="file-input" type="file" name="file" accept=".pdf,.png,.jpg,.jpeg">
+            <p id="selectedFile" class="selected-file" aria-live="polite"></p>
+          </form>
+
+          <section class="paste-panel" aria-labelledby="paste-title">
+            <div>
+              <h2 id="paste-title">Or paste document text</h2>
+              <p>Use this when you already have copied text from a letter, bill, or notice.</p>
+            </div>
+            <textarea id="pasteText" rows="5" placeholder="Paste official document text here..."></textarea>
+            <div class="paste-actions">
+              <button id="processTextButton" class="primary-action" type="button"><i data-lucide="sparkles"></i> Simplify Text</button>
+              <button id="clearTextButton" class="ghost-action" type="button"><i data-lucide="x"></i> Clear</button>
+            </div>
+          </section>
+
+          <div class="sample-head" id="samples">
+            <p>Or try with a sample document</p>
+            <button type="button">View all samples <i data-lucide="arrow-right"></i></button>
+          </div>
+
+          <div class="sample-grid">
+            <button class="sample-card" type="button" data-sample="insurance">
+              <span class="sample-icon blue"><i data-lucide="shield"></i></span>
+              <strong>Insurance Policy</strong>
+              <small>Renewal notice</small>
+              <em>Try Sample <i data-lucide="arrow-right"></i></em>
+            </button>
+            <button class="sample-card" type="button" data-sample="medical">
+              <span class="sample-icon green"><i data-lucide="heart-pulse"></i></span>
+              <strong>Medical Report</strong>
+              <small>Discharge summary</small>
+              <em>Try Sample <i data-lucide="arrow-right"></i></em>
+            </button>
+            <button class="sample-card" type="button" data-sample="government">
+              <span class="sample-icon purple"><i data-lucide="landmark"></i></span>
+              <strong>Government Notice</strong>
+              <small>Aadhaar verification</small>
+              <em>Try Sample <i data-lucide="arrow-right"></i></em>
+            </button>
+            <button class="sample-card" type="button" data-sample="electricity">
+              <span class="sample-icon amber"><i data-lucide="zap"></i></span>
+              <strong>Electricity Bill</strong>
+              <small>Payment reminder</small>
+              <em>Try Sample <i data-lucide="arrow-right"></i></em>
+            </button>
+            <button class="sample-card" type="button" data-sample="bank">
+              <span class="sample-icon pink"><i data-lucide="landmark"></i></span>
+              <strong>Bank Statement</strong>
+              <small>Loan EMI reminder</small>
+              <em>Try Sample <i data-lucide="arrow-right"></i></em>
+            </button>
+          </div>
+
+          <section id="results" class="results-section" aria-live="polite">
+            <div class="result-empty">
+              <i data-lucide="file-search"></i>
+              <p>Your simplified explanation will appear here after processing.</p>
+            </div>
+          </section>
+
+          <p class="quote-line">“Clarity is the first step to taking the right action”</p>
+        </section>
+
+        <aside class="right-rail" aria-label="Information panels">
+          <section class="rail-card ai-card" id="ai-assistant">
+            <div class="rail-title">
+              <h2>Ask Offline AI</h2>
+              <span><i data-lucide="wifi-off"></i> Local</span>
+            </div>
+            <div class="chat-window" id="chatWindow" aria-live="polite">
+              <div class="chat-message ai">
+                <span><i data-lucide="sparkles"></i></span>
+                <p>Ask me about your uploaded documents, deadlines, payments, contacts, priority, or how ClarityDoc works.</p>
+              </div>
+            </div>
+            <form class="chat-form" id="chatForm">
+              <label class="sr-only" for="aiQuestion">Ask the offline AI assistant</label>
+              <input id="aiQuestion" type="text" autocomplete="off" placeholder="Ask anything about your document...">
+              <button type="submit" aria-label="Ask offline AI"><i data-lucide="send"></i></button>
+            </form>
+          </section>
+
+          <section class="rail-card">
+            <div class="rail-title">
+              <h2>How it works</h2>
+              <span>3 simple steps</span>
+            </div>
+            <ol class="steps">
+              <li><span>1</span><div><strong>Upload</strong><p>Add your document or paste text</p></div></li>
+              <li><span>2</span><div><strong>Analyze</strong><p>AI reads and understands content</p></div></li>
+              <li><span>3</span><div><strong>Get Clarity</strong><p>Receive simple explanation & actions</p></div></li>
+            </ol>
+          </section>
+
+          <section class="rail-card" id="privacy">
+            <h2>Why ClarityDoc?</h2>
+            <div class="why-list">
+              <article><span class="green">Aa</span><div><strong>Plain Language</strong><p>No complicated jargon</p></div></article>
+              <article><span class="green"><i data-lucide="check"></i></span><div><strong>Action Focused</strong><p>Know exactly what to do</p></div></article>
+              <article><span class="orange"><i data-lucide="calendar-days"></i></span><div><strong>Deadline Alerts</strong><p>Never miss important dates</p></div></article>
+              <article><span class="violet"><i data-lucide="zap"></i></span><div><strong>Instant Results</strong><p>Fast processing on your device</p></div></article>
+            </div>
+          </section>
+
+          <section class="rail-card chart-card">
+            <div class="rail-title">
+              <h2>Documents Processed</h2>
+              <span>This Week <i data-lucide="chevron-down"></i></span>
+            </div>
+            <strong class="chart-number">427 <small>+21%</small></strong>
+            <div class="bar-chart" aria-hidden="true">
+              <span style="--h:42%"></span>
+              <span style="--h:48%"></span>
+              <span style="--h:54%"></span>
+              <span style="--h:74%"></span>
+              <span style="--h:36%"></span>
+              <span style="--h:78%"></span>
+              <span style="--h:38%"></span>
+              <span style="--h:28%"></span>
+            </div>
+            <div class="chart-days"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+          </section>
+        </aside>
+      </main>
+
+      <button class="start-button" type="button" onclick="document.getElementById('fileInput').click()">
+        <i data-lucide="sparkles"></i> Start New <kbd>⌘ N</kbd>
+      </button>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="{{ url_for('root_script') }}" defer></script>
+</body>
+</html>
